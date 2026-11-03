@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>prashant | Spam Detection</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-icon">✦</span> shield<span>ai</span></a>
+  <div class="top-right"><span class="live-dot"></span> ML ENGINE ACTIVE <span class="version">v1.0</span></div>
+</header>
+<main class="shell">
+  <section class="hero">
+    <div class="eyebrow"><span></span> INTELLIGENT MESSAGE SECURITY</div>
+    <h1>Detect spam.<br><span>Stay one step ahead.</span></h1>
+    <p class="hero-copy">A machine-learning powered scanner for suspicious emails and text messages. Paste a message and get an instant risk assessment.</p>
+    <div class="stats">
+      <div><strong>2-in-1</strong><small>EMAIL + SMS</small></div>
+      <i></i><div><strong>AI / ML</strong><small>TEXT CLASSIFIER</small></div>
+      <i></i><div><strong>Instant</strong><small>ANALYSIS</small></div>
+    </div>
+  </section>
+
+  <section class="workspace">
+    <div class="panel input-panel">
+      <div class="panel-head"><div><div class="panel-kicker">MESSAGE SCANNER</div><h2>Analyze a message</h2></div><div class="shield">⌑</div></div>
+      <div class="tabs">
+        <button class="tab active" data-type="email">✉ <span>Email</span></button>
+        <button class="tab" data-type="sms">▣ <span>SMS / Message</span></button>
+      </div>
+      <label for="message" id="field-label">PASTE EMAIL CONTENT</label>
+      <textarea id="message" maxlength="5000" placeholder="Paste the email subject and body here..."></textarea>
+      <div class="text-meta"><span id="hint">Tip: include the full message for better analysis.</span><span id="count">0 / 5000</span></div>
+      <div class="examples"><span>TRY SAMPLE</span><button class="sample" data-sample="spam">⚠ Suspicious offer</button><button class="sample" data-sample="ham">✓ Normal message</button></div>
+      <button class="analyze" id="analyze"><span>Analyze message</span><b>→</b></button>
+      <p class="privacy">⌑ &nbsp;Your text is analyzed locally by this app and is not saved to a database.</p>
+    </div>
+
+    <div class="panel result-panel" id="result-panel">
+      <div class="panel-head"><div><div class="panel-kicker">SCAN REPORT</div><h2>Detection result</h2></div><div class="result-icon">◉</div></div>
+      <div class="empty-state" id="empty">
+        <div class="radar"><div class="radar-core">✦</div><span></span><i></i></div>
+        <h3>Ready to scan</h3><p>Your analysis will appear here.<br>Paste a message and hit analyze.</p>
+        <div class="empty-tags"><span>SPAM CHECK</span><span>PHISHING SIGNALS</span><span>TEXT CLASSIFICATION</span></div>
+      </div>
+      <div class="result-content hidden" id="result">
+        <div class="verdict-row"><div><span class="verdict-label">CLASSIFICATION</span><h3 id="verdict">Not Spam</h3></div><span class="verdict-badge" id="badge">SAFE</span></div>
+        <div class="score-wrap"><div class="score-head"><span>SPAM PROBABILITY</span><strong id="score">0%</strong></div><div class="meter"><div id="meter-fill"></div></div><div class="meter-labels"><span>LOW RISK</span><span>HIGH RISK</span></div></div>
+        <div class="details">
+          <div><span>RISK LEVEL</span><strong id="risk">Low</strong></div>
+          <div><span>MODEL CONFIDENCE</span><strong id="confidence">0%</strong></div>
+          <div><span>WORD COUNT</span><strong id="words">0</strong></div>
+        </div>
+        <div class="advice" id="advice"><b>✓</b><span>Looks okay, but always verify unexpected links and requests.</span></div>
+        <button class="reset" id="reset">↻ &nbsp;Scan another message</button>
+      </div>
+      <div class="error hidden" id="error"></div>
+    </div>
+  </section>
+  <section class="how"><div><span class="panel-kicker">UNDER THE HOOD</span><h2>Simple input. Smart detection.</h2></div><div class="steps"><div><b>01</b><strong>Text processing</strong><p>Clean and tokenize the message.</p></div><div><b>02</b><strong>TF-IDF features</strong><p>Convert words into numerical features.</p></div><div><b>03</b><strong>ML prediction</strong><p>Naive Bayes predicts spam or ham.</p></div></div></section>
+  <footer><span>✦ SHIELDAI</span><span>Built with Flask · Scikit-learn · TF-IDF</span><span>ACADEMIC ML PROJECT</span></footer>
+</main>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
